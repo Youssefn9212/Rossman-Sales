@@ -14,9 +14,9 @@
 
 ### Required Data Files
 Due to size limitations, download the following files from [Google Drive](https://drive.google.com/drive/folders/1h2ce97-ukhYEUFwg-E19DCd7Ior-DORS?usp=sharing):
-- `test_processed1.csv` (2.3 MB)
-- `train_final1.csv` (510.8 MB)
-- `train_processed1.csv` (69.8 MB)
+- `model_xgb.json` (135 MB) Place in /Deployment/models/
+- `train_final1.csv` (510.8 MB)  Place in /Processed Data/
+- `train_processed1.csv` (69.8 MB) Place in /Processed Data/
 
 Place these files in their respective directories after cloning the repository.
 
