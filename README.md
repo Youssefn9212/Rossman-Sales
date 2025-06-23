@@ -2,6 +2,7 @@
 
 **Author**: Youssef Nakhla  
 **Objective**: Develop and deploy a robust, production-ready pipeline for daily sales forecasting across a national retail chain.
+
 ---
 
 ## Setup and Installation
@@ -12,6 +13,15 @@
 - Virtual environment (recommended)
 
 ### Required Data Files
+Due to size limitations, download the following files from [Google Drive]([your-google-drive-link](https://drive.google.com/drive/folders/1h2ce97-ukhYEUFwg-E19DCd7Ior-DORS?usp=sharing)):
+- `model_xgb.json`
+- `train.csv`
+- `test_processed1.csv`
+- `train_final1.csv`
+- `train_processed1.csv`
+
+Place these files in their respective directories after cloning the repository.
+
 ### Installation Steps
 
 1. Clone the repository:
@@ -25,6 +35,10 @@ cd Rossman-Sales
 # Windows
 python -m venv venv
 .\venv\Scripts\activate
+
+# Linux/Mac
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 3. Install required packages:
@@ -32,6 +46,10 @@ python -m venv venv
 cd Deployment
 pip install -r requirements.txt
 ```
+
+4. Download the required data files from the Google Drive link and place them in their respective directories:
+   - Place `model_xgb.json` in `Deployment/models/`
+   - Place `test_processed1.csv`, `train_final1.csv`, and `train_processed1.csv` in `Processed Data/`
 
 ### Running the Application
 
@@ -79,6 +97,7 @@ Rossman-Sales/
      - Store Performance
      - Promotions & Holidays
      - Seasonality
+
 ---
 
 ## 1. Introduction
