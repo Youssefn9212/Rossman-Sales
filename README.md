@@ -175,34 +175,50 @@ A web-based interface was developed to provide business users with both predicti
 - Input fields adapt based on selections (e.g., Promo2 visibility).
 - The forecast is generated using the deployed XGB + CNN–LSTM ensemble model.
 
-![Sales Forecasting Interface](Flask%20App%20Demos/new_sales.png)
-![Sales Form](Flask%20App%20Demos/new_sales1.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/new_sales.png" alt="Sales Forecasting Interface"/>
+</p>
+<p align="center">
+  <img src="Flask%20App%20Demos/new_sales1.png" alt="Sales Form"/>
+</p>
 
 ### Prediction History
 
 - All forecasts are stored in memory and displayed in a tabular format.
 - Includes store number, forecast date, predicted sales, and timestamp.
 
-![Prediction History](Flask%20App%20Demos/history.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/history.png" alt="Prediction History"/>
+</p>
 
 ### Sales Analysis Dashboard
 
 Includes the following interactive visualizations using Plotly:
 
 - Overview: Aggregate metrics and trend plots.
-![Overview Dashboard](Flask%20App%20Demos/overview.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/overview.png" alt="Overview Dashboard"/>
+</p>
 
 - Time Trends: Sales by day of week and month with rolling averages.
-![Time Trends Analysis](Flask%20App%20Demos/trends.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/trends.png" alt="Time Trends Analysis"/>
+</p>
 
 - Store Performance: Top stores and daily sales visualized with boxplots and line charts.
-![Store Performance Analysis](Flask%20App%20Demos/store_pref.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/store_pref.png" alt="Store Performance Analysis"/>
+</p>
 
 - Promotions & Holidays: Comparative analysis across different types of events.
-![Promotions Analysis](Flask%20App%20Demos/promotions.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/promotions.png" alt="Promotions Analysis"/>
+</p>
 
 - Seasonality by Store: Decomposition of sales trends per store.
-![Seasonality Analysis](Flask%20App%20Demos/seasonality.png)
+<p align="center">
+  <img src="Flask%20App%20Demos/seasonality.png" alt="Seasonality Analysis"/>
+</p>
 
 ### Data Handling
 
