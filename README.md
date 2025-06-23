@@ -13,12 +13,10 @@
 - Virtual environment (recommended)
 
 ### Required Data Files
-Due to size limitations, download the following files from [Google Drive]([your-google-drive-link](https://drive.google.com/drive/folders/1h2ce97-ukhYEUFwg-E19DCd7Ior-DORS?usp=sharing)):
-- `model_xgb.json`
-- `train.csv`
-- `test_processed1.csv`
-- `train_final1.csv`
-- `train_processed1.csv`
+Due to size limitations, download the following files from [Google Drive](https://drive.google.com/drive/folders/1h2ce97-ukhYEUFwg-E19DCd7Ior-DORS?usp=sharing):
+- `test_processed1.csv` (2.3 MB)
+- `train_final1.csv` (510.8 MB)
+- `train_processed1.csv` (69.8 MB)
 
 Place these files in their respective directories after cloning the repository.
 
@@ -47,9 +45,7 @@ cd Deployment
 pip install -r requirements.txt
 ```
 
-4. Download the required data files from the Google Drive link and place them in their respective directories:
-   - Place `model_xgb.json` in `Deployment/models/`
-   - Place `test_processed1.csv`, `train_final1.csv`, and `train_processed1.csv` in `Processed Data/`
+4. Download the required data files from the Google Drive link and place them in the `Processed Data/` directory.
 
 ### Running the Application
 
