@@ -20,6 +20,8 @@ Due to size limitations, download the following files from [Google Drive](https:
 
 Place these files in their respective directories after cloning the repository.
 
+Note: The repository includes `final_submission.csv` in the `Processed Data` directory, which contains the predictions for the test set using our best performing model (XGB + CNN-LSTM ensemble with RMPSE of 0.0259).
+
 ### Installation Steps
 
 1. Clone the repository:
