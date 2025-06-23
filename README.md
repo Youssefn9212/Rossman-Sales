@@ -175,33 +175,34 @@ A web-based interface was developed to provide business users with both predicti
 - Input fields adapt based on selections (e.g., Promo2 visibility).
 - The forecast is generated using the deployed XGB + CNN–LSTM ensemble model.
 
-![Sales Forecasting Interface](Flask%20Demo/new_sales.png)
+![Sales Forecasting Interface](Flask%20App%20Demos/new_sales.png)
+![Sales Form](Flask%20App%20Demos/new_sales1.png)
 
 ### Prediction History
 
 - All forecasts are stored in memory and displayed in a tabular format.
 - Includes store number, forecast date, predicted sales, and timestamp.
 
-![Prediction History](Flask%20Demo/pred_history.png)
+![Prediction History](Flask%20App%20Demos/history.png)
 
 ### Sales Analysis Dashboard
 
 Includes the following interactive visualizations using Plotly:
 
 - Overview: Aggregate metrics and trend plots.
-![Overview Dashboard](Flask%20Demo/overview.png)
+![Overview Dashboard](Flask%20App%20Demos/overview.png)
 
 - Time Trends: Sales by day of week and month with rolling averages.
-![Time Trends Analysis](Flask%20Demo/time_trends.png)
+![Time Trends Analysis](Flask%20App%20Demos/trends.png)
 
 - Store Performance: Top stores and daily sales visualized with boxplots and line charts.
-![Store Performance Analysis](Flask%20Demo/store_performance.png)
+![Store Performance Analysis](Flask%20App%20Demos/store_pref.png)
 
 - Promotions & Holidays: Comparative analysis across different types of events.
-![Promotions Analysis](Flask%20Demo/promotions.png)
+![Promotions Analysis](Flask%20App%20Demos/promotions.png)
 
 - Seasonality by Store: Decomposition of sales trends per store.
-![Seasonality Analysis](Flask%20Demo/seasonality.png)
+![Seasonality Analysis](Flask%20App%20Demos/seasonality.png)
 
 ### Data Handling
 
