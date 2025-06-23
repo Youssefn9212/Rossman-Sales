@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History - Sales Forecasting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h1>Sales Forecasting System</h1>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link">New Prediction</a>
+                <a href="{{ url_for('history') }}" class="nav-link active">History</a>
+                <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <h2>Prediction History</h2>
+            {% if predictions %}
+            <div class="history-table-container">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Store</th>
+                            <th>Predicted Sales</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prediction in predictions|reverse %}
+                        <tr>
+                            <td>{{ prediction.date }}</td>
+                            <td>{{ prediction.store }}</td>
+                            <td>{{ prediction.predicted_sales }}</td>
+                            <td>{{ prediction.timestamp }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="no-data">No predictions have been made yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html> 

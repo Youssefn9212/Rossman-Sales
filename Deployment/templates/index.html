@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Forecasting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h1>Sales Forecasting System</h1>
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}" class="nav-link {% if request.endpoint == 'home' %}active{% endif %}">New Prediction</a>
+                <a href="{{ url_for('history') }}" class="nav-link {% if request.endpoint == 'history' %}active{% endif %}">History</a>
+                <a href="{{ url_for('analysis') }}" class="nav-link {% if request.endpoint == 'analysis' %}active{% endif %}">Sales Analysis</a>
+                <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="welcome-message">
+                {% if username %}
+                    Welcome, {{ username }}!
+                {% else %}
+                    Welcome!
+                {% endif %}
+            </div>
+            {% if request.endpoint == 'home' %}
+                <div class="prediction-form">
+                    <h2>New Sales Prediction</h2>
+                    <form id="predictionForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="store">Store Number:</label>
+                                <input type="number" id="store" name="store" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="storeType">Store Type:</label>
+                                <select id="storeType" name="storeType" required>
+                                    <option value="a">Type A</option>
+                                    <option value="b">Type B</option>
+                                    <option value="c">Type C</option>
+                                    <option value="d">Type D</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="assortment">Assortment:</label>
+                                <select id="assortment" name="assortment" required>
+                                    <option value="a">Basic</option>
+                                    <option value="b">Extra</option>
+                                    <option value="c">Extended</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stateHoliday">State Holiday:</label>
+                                <select id="stateHoliday" name="stateHoliday" required>
+                                    <option value="0">None</option>
+                                    <option value="a">Public Holiday</option>
+                                    <option value="b">Easter</option>
+                                    <option value="c">Christmas</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="schoolHoliday">School Holiday:</label>
+                                <select id="schoolHoliday" name="schoolHoliday" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="open">Store Open:</label>
+                                <select id="open" name="open" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="promo">Promotion:</label>
+                                <select id="promo" name="promo" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Competition Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="competitionDistance">Competition Distance (meters):</label>
+                                    <input type="number" id="competitionDistance" name="competitionDistance" min="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="competitionOpenSinceMonth">Competition Open Since Month:</label>
+                                    <input type="number" id="competitionOpenSinceMonth" name="competitionOpenSinceMonth" min="1" max="12">
+                                </div>
+                                <div class="form-group">
+                                    <label for="competitionOpenSinceYear">Competition Open Since Year:</label>
+                                    <input type="number" id="competitionOpenSinceYear" name="competitionOpenSinceYear" min="2000" max="2025">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Promo 2 Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="promo2">Participating in Promo 2:</label>
+                                    <select id="promo2" name="promo2" required>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row promo2-fields" id="promo2Fields">
+                                <div class="form-group">
+                                    <label for="promo2SinceWeek">Promo 2 Since Week:</label>
+                                    <input type="number" id="promo2SinceWeek" name="promo2SinceWeek" min="1" max="52">
+                                </div>
+                                <div class="form-group">
+                                    <label for="promo2SinceYear">Promo 2 Since Year:</label>
+                                    <input type="number" id="promo2SinceYear" name="promo2SinceYear" min="2000" max="2025">
+                                </div>
+                            </div>
+                            <div class="form-row promo2-fields">
+                                <div class="form-group">
+                                    <label for="promoInterval">Promo Interval:</label>
+                                    <select id="promoInterval" name="promoInterval">
+                                        <option value="">None</option>
+                                        <option value="Jan,Apr,Jul,Oct">Jan,Apr,Jul,Oct</option>
+                                        <option value="Feb,May,Aug,Nov">Feb,May,Aug,Nov</option>
+                                        <option value="Mar,Jun,Sept,Dec">Mar,Jun,Sept,Dec</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Predict Sales</button>
+                            <button type="reset" class="btn-secondary">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="result" class="result-section" style="display: none;">
+                    <h3>Predicted Sales</h3>
+                    <div class="prediction-result">
+                        <span id="salesValue"></span>
+                    </div>
+                </div>
+            {% else %}
+                {% block content %}{% endblock %}
+            {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

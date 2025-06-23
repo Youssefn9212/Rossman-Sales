@@ -1,0 +1,354 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --border-color: #dcdde1;
+    --success-color: #27ae60;
+    --hover-color: #2980b9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Login Page Styles */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: var(--hover-color);
+}
+
+.nav-link.active {
+    background-color: var(--secondary-color);
+}
+
+/* Container and Content */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    padding: 2rem;
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Welcome Message */
+.welcome-message {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Form Styles */
+.prediction-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.form-section h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Result Section */
+.result-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.prediction-result {
+    font-size: 2rem;
+    color: var(--success-color);
+    margin-top: 1rem;
+}
+
+/* History Table */
+.history-table-container {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.history-table th,
+.history-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.history-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.history-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Error Message */
+.error-message {
+    color: var(--accent-color);
+    background-color: #fde2e2;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* No Data Message */
+.no-data {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-links {
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Analysis Tabs */
+.nav-tabs {
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    gap: 0.5rem;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -2px;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    background-color: transparent;
+}
+
+/* Analysis Cards */
+.card {
+    background: white;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Graph Containers */
+.plot-container {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    height: 400px;
+} 

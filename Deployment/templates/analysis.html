@@ -1,0 +1,142 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container mt-4">
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <strong>Error loading analysis data:</strong> {{ error }}
+    </div>
+    {% else %}
+    <div class="nav nav-tabs mb-4" id="analysisTabs">
+        <a class="nav-link {% if tab == 'overview' %}active{% endif %}" href="{{ url_for('analysis', tab='overview') }}">Overview</a>
+        <a class="nav-link {% if tab == 'time_trends' %}active{% endif %}" href="{{ url_for('analysis', tab='time_trends') }}">Time Trends</a>
+        <a class="nav-link {% if tab == 'store_performance' %}active{% endif %}" href="{{ url_for('analysis', tab='store_performance') }}">Store Performance</a>
+        <a class="nav-link {% if tab == 'promotions' %}active{% endif %}" href="{{ url_for('analysis', tab='promotions') }}">Promotions & Holidays</a>
+        <a class="nav-link {% if tab == 'seasonality' %}active{% endif %}" href="{{ url_for('analysis', tab='seasonality') }}">Seasonality</a>
+    </div>
+
+    <div class="tab-content">
+        {% if tab == 'overview' %}
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Sales</h5>
+                        <p class="card-text">{{ "{:,.2f}".format(total_sales) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Avg Daily Sales</h5>
+                        <p class="card-text">{{ "{:,.2f}".format(avg_daily_sales) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Unique Stores</h5>
+                        <p class="card-text">{{ unique_stores }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Promo Coverage</h5>
+                        <p class="card-text">{{ "{:.1f}%".format(promo_coverage) }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ sales_plot | safe }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if tab == 'time_trends' %}
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ daily_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ monthly_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ rolling_plot | safe }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if tab == 'store_performance' %}
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ store_type_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ top_stores_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ top_5_plot | safe }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if tab == 'promotions' %}
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ promo_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ holiday_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ promo2_plot | safe }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if tab == 'seasonality' %}
+        <div class="form-group mb-4">
+            <label for="storeSelect">Select Store:</label>
+            <select class="form-control" id="storeSelect" onchange="window.location.href = '{{ url_for('analysis', tab='seasonality') }}' + '&store=' + this.value;">
+                {% for store in stores %}
+                <option value="{{ store }}" {% if store|string == selected_store|string %}selected{% endif %}>Store {{ store }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ trend_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ seasonal_plot | safe }}
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                {{ residual_plot | safe }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 
