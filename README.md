@@ -2,7 +2,83 @@
 
 **Author**: Youssef Nakhla  
 **Objective**: Develop and deploy a robust, production-ready pipeline for daily sales forecasting across a national retail chain.
+---
 
+## Setup and Installation
+
+### Prerequisites
+- Python 3.11 or higher
+- Git
+- Virtual environment (recommended)
+
+### Required Data Files
+### Installation Steps
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Youssefn9212/Rossman-Sales.git
+cd Rossman-Sales
+```
+
+2. Create and activate a virtual environment:
+```bash
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+3. Install required packages:
+```bash
+cd Deployment
+pip install -r requirements.txt
+```
+
+### Running the Application
+
+1. Start the Flask application:
+```bash
+cd Deployment
+python app.py
+```
+
+2. Open your web browser and navigate to:
+```
+http://127.0.0.1:5000
+```
+
+### Project Structure
+```
+Rossman-Sales/
+├── Dataset/                  # Original competition datasets
+├── Deployment/              # Flask web application
+│   ├── app.py              # Main application file
+│   ├── models/             # Trained models
+│   ├── static/             # CSS, JS files
+│   ├── templates/          # HTML templates
+│   └── requirements.txt    # Python dependencies
+├── Notebooks/              # Jupyter notebooks for analysis
+│   ├── Preprocessing.ipynb
+│   ├── Feature Engineering.ipynb
+│   ├── Modelling.ipynb
+│   └── Forecasting.ipynb
+└── Processed Data/         # Processed datasets
+```
+
+### Usage Guide
+
+1. **Sales Forecasting**:
+   - Navigate to the prediction page
+   - Enter store details and date
+   - Click "Generate Forecast"
+
+2. **Analytics Dashboard**:
+   - Navigate to the analysis page
+   - Use the tabs to explore different aspects:
+     - Overview
+     - Time Trends
+     - Store Performance
+     - Promotions & Holidays
+     - Seasonality
 ---
 
 ## 1. Introduction
