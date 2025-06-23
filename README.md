@@ -20,7 +20,7 @@ Due to size limitations, download the following files from [Google Drive](https:
 
 Place these files in their respective directories after cloning the repository.
 
-Note: The repository includes `final_submission.csv` in the `Processed Data` directory, which contains the predictions for the test set using our best performing model (XGB + CNN-LSTM ensemble with RMPSE of 0.0259).
+Note: The repository includes `final_submission.csv` in the `Processed Data` directory, which contains the predictions for the test set using my best performing model (XGB + CNN-LSTM ensemble).
 
 ### Installation Steps
 
@@ -38,7 +38,7 @@ python -m venv venv
 
 # Linux/Mac
 python3 -m venv venv
-source venv/bin/activate
+smyce venv/bin/activate
 ```
 
 3. Install required packages:
@@ -57,7 +57,7 @@ cd Deployment
 python app.py
 ```
 
-2. Open your web browser and navigate to:
+2. Open ymy web browser and navigate to:
 ```
 http://127.0.0.1:5000
 ```
